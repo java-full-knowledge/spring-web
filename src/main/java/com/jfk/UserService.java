@@ -24,7 +24,16 @@ public class UserService {
         user.setEmail(request.getEmail());
         user.setPassword(request.getPassword());
         user.setUserName(request.getUserName());
+
         return userRepository.save(user);
+    }
+
+    public User find(String userName) {
+        User found = userRepository.findByUserName(userName);
+        if (found != null) {
+            return found;
+        }
+        throw new UserNotFoundException(String.format("user with username : %s not found...", userName));
     }
 
     @Autowired
@@ -32,3 +41,22 @@ public class UserService {
         this.userRepository = userRepository;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

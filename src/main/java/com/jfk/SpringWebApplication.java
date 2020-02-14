@@ -10,4 +10,10 @@ public class SpringWebApplication {
         SpringApplication.run(SpringWebApplication.class, args);
     }
 
+
+
+    @Override
+    public String toString() {
+        return "SpringWebApplication{}";
+    }
 }
